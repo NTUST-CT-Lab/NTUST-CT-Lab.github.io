@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>國立臺灣科技大學 | 游承修教授化工製程技術實驗室</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--JQuery-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+  <div id="app">
+    <script src="/common.t.js"></script>
+
+    <!-- 導航列 -->
+    <header class="include" include="/nav.htm"></header>
+
+    <!-- 首頁英雄區塊 -->
+    <section id="home" class="hero-section">
+      <div class="container text-center">
+        <h1 class="display-4 fw-bold">國立臺灣科技大學</h1>
+        <h2 class="mb-4">游承修教授化工製程技術實驗室</h2>
+        <p class="lead mb-5">致力於二氧化碳捕捉、熱物性質量測、相平衡模擬及製程強化的尖端研究</p>
+        <a href="#research" class="btn btn-lg btn-light">了解更多</a>
+      </div>
+    </section>
+
+    <!-- 簡介區塊 -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h3 class="section-heading">實驗室簡介</h3>
+            <p>國立臺灣科技大學化學工程所游承修教授的化工製程技術實驗室，專注於開發創新解決方案，應對當代化學工程的挑戰。我們的研究結合了實驗測量與理論模擬，以促進化工製程的效率、環保性及經濟效益。</p>
+            <p>我們致力於培養學生在化學工程領域的專業知識和解決問題的能力，並與國內外學術界和產業界保持密切合作，共同推動相關領域的技術發展。</p>
+          </div>
+          <div class="col-lg-6">
+            <img src="/api/placeholder/600/400" alt="實驗室照片" class="img-fluid rounded shadow-sm">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究領域 -->
+    <section id="research" class="py-5">
+      <div class="container">
+        <h3 class="section-heading">研究領域</h3>
+        <div class="row g-4">
+          <!-- CO2捕捉 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 research-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="material-icons text-success">eco</span>
+                  二氧化碳捕捉
+                </h5>
+                <p class="card-text">開發高效能的二氧化碳吸附材料與先進捕捉技術，致力於減少溫室氣體排放，應對氣候變遷挑戰。</p>
+                <div class="mt-3">
+                  <span class="badge bg-light text-dark">碳捕捉</span>
+                  <span class="badge bg-light text-dark">溫室氣體</span>
+                  <span class="badge bg-light text-dark">永續發展</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 熱物性質量測 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 research-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="material-icons text-danger">whatshot</span>
+                  熱物性質量測及模型建立
+                </h5>
+                <p class="card-text">精確測量化學物質的熱物性質，建立預測模型，為化學工程設計與模擬提供關鍵參數。</p>
+                <div class="mt-3">
+                  <span class="badge bg-light text-dark">熱力學</span>
+                  <span class="badge bg-light text-dark">模型預測</span>
+                  <span class="badge bg-light text-dark">物性資料庫</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 相平衡量測 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 research-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="material-icons text-primary">balance</span>
+                  相平衡量測與模擬
+                </h5>
+                <p class="card-text">研究混合物系統的相行為，進行精確量測與理論模擬，優化分離程序與製程設計。</p>
+                <div class="mt-3">
+                  <span class="badge bg-light text-dark">相平衡</span>
+                  <span class="badge bg-light text-dark">熱力學模型</span>
+                  <span class="badge bg-light text-dark">分離技術</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 製程強化 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 research-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="material-icons text-warning">settings_suggest</span>
+                  製程強化與放大設計
+                </h5>
+                <p class="card-text">開發創新技術優化化工製程，提高效率與降低能耗，研究從實驗室到工業規模的放大策略。</p>
+                <div class="mt-3">
+                  <span class="badge bg-light text-dark">製程強化</span>
+                  <span class="badge bg-light text-dark">能源效率</span>
+                  <span class="badge bg-light text-dark">放大設計</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 研究專案 -->
+        <h4 class="mt-5 mb-4">進行中的研究專案</h4>
+        <div class="list-group">
+          <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">開發新型多孔材料用於二氧化碳捕捉</h5>
+              <small>2023-2025</small>
+            </div>
+            <p class="mb-1">設計具有高選擇性與吸附容量的奈米多孔材料，優化二氧化碳捕捉效率。</p>
+          </div>
+          <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">碳捕捉、利用與封存技術整合研究</h5>
+              <small>2024-2026</small>
+            </div>
+            <p class="mb-1">探究碳捕捉技術與碳利用、封存方法的整合應用，建立碳中和的技術路徑。</p>
+          </div>
+          <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">化工製程數位孿生技術開發</h5>
+              <small>2024-2025</small>
+            </div>
+            <p class="mb-1">結合物性量測數據與模擬技術，構建製程的數位孿生系統，實現智慧化操作與優化。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 指導教授 -->
+    <section id="pi" class="py-5 bg-light">
+      <div class="container">
+        <h3 class="section-heading">指導教授</h3>
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center">
+            <img src="/assets/images/pi.png" alt="游承修教授" class="rounded-circle img-fluid mb-3 shadow" style="max-width: 200px;">
+          </div>
+          <div class="col-md-8">
+            <h4>游承修 教授</h4>
+            <p class="text-muted mb-3">國立臺灣科技大學 化學工程系</p>
+            <p>游承修教授專研於化學工程製程技術，尤其專注於二氧化碳捕捉、熱物性質量測、相平衡研究與製程強化等領域。擁有豐富的學術研究與產業合作經驗，致力於開發永續且高效能的化工技術。</p>
+            
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <h5>學歷</h5>
+                <ul class="list-unstyled">
+                  <li>國立台灣大學 化學工程博士</li>
+                  <li>國立台灣大學 化學工程碩士</li>
+                  <li>國立台灣大學 化學工程學士</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h5>專業領域</h5>
+                <ul class="list-unstyled">
+                  <li>碳捕捉與利用技術</li>
+                  <li>熱力學與物性量測</li>
+                  <li>製程模擬與放大設計</li>
+                  <li>綠色製程工程</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="mt-4">
+              <a href="mailto:professor@mail.ntust.edu.tw" class="btn btn-outline-primary me-2">
+                <span class="material-icons">email</span> 聯絡教授
+              </a>
+              <a href="#" target="_blank" class="btn btn-outline-secondary me-2">
+                <span class="material-icons">article</span> Google Scholar
+              </a>
+              <a href="#" target="_blank" class="btn btn-outline-info">
+                <span class="material-icons">link</span> ResearchGate
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 實驗室成員 -->
+    <section id="members" class="py-5">
+      <div class="container">
+        <h3 class="section-heading">實驗室成員</h3>
+        
+        <!-- 分類標籤 -->
+        <ul class="nav nav-pills mb-4 justify-content-center">
+          <li class="nav-item">
+            <button class="nav-link active mx-1" @click="filterMembers('all')">全部</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link mx-1" @click="filterMembers('phd')">博士生</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link mx-1" @click="filterMembers('master')">碩士生</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link mx-1" @click="filterMembers('alumni')">畢業生</button>
+          </li>
+        </ul>
+        
+        <div class="row g-4">
+          <!-- 博士生 -->
+          <div class="col-md-6 col-lg-3" v-for="index in 2" :key="'phd'+index">
+            <div class="card h-100 team-member">
+              <img src="/api/placeholder/300/300" class="card-img-top" alt="博士生">
+              <div class="card-body text-center">
+                <h5 class="card-title mb-1">王大明</h5>
+                <p class="card-text text-muted mb-2">博士生</p>
+                <p class="card-text small">研究方向：二氧化碳捕捉材料設計與測試</p>
+                <div class="mt-3">
+                  <a href="mailto:phd@mail.ntust.edu.tw" class="btn btn-sm btn-outline-primary">
+                    <span class="material-icons small">email</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 碩士生 -->
+          <div class="col-md-6 col-lg-3" v-for="index in 4" :key="'master'+index">
+            <div class="card h-100 team-member">
+              <img src="/api/placeholder/300/300" class="card-img-top" alt="碩士生">
+              <div class="card-body text-center">
+                <h5 class="card-title mb-1">林小華</h5>
+                <p class="card-text text-muted mb-2">碩士生</p>
+                <p class="card-text small">研究方向：熱物性量測與模型開發</p>
+                <div class="mt-3">
+                  <a href="mailto:master@mail.ntust.edu.tw" class="btn btn-sm btn-outline-primary">
+                    <span class="material-icons small">email</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 發表論文 -->
+    <section id="publications" class="py-5 bg-light">
+      <div class="container">
+        <h3 class="section-heading">發表論文</h3>
+        
+        <!-- 篩選選項 -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋論文..." v-model="searchQuery">
+              <button class="btn btn-outline-secondary" type="button">
+                <span class="material-icons">search</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <select class="form-select" v-model="yearFilter">
+              <option value="all">所有年份</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- 論文列表 -->
+        <div class="publication-item" v-for="index in 5" :key="'pub'+index">
+          <h5>Development of novel adsorbents for selective CO2 capture from flue gas</h5>
+          <p class="text-muted mb-2">You, C.S., Wang, D.M., Lin, X.H., Chen, Y.Z.</p>
+          <p class="mb-2"><strong>Journal of CO2 Utilization</strong>, 2024, Vol. 45, pp. 123-135</p>
+          <div>
+            <span class="badge bg-success me-1">二氧化碳捕捉</span>
+            <span class="badge bg-primary me-1">吸附材料</span>
+            <a href="#" class="btn btn-sm btn-outline-secondary me-1">
+              <span class="material-icons small">description</span> PDF
+            </a>
+            <a href="#" class="btn btn-sm btn-outline-info">
+              <span class="material-icons small">link</span> DOI
+            </a>
+          </div>
+        </div>
+        
+        <!-- 分頁 -->
+        <nav class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="上一頁">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="下一頁">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 合作夥伴 -->
+    <section class="py-5">
+      <div class="container">
+        <h3 class="section-heading">合作夥伴</h3>
+        <div class="row g-4 align-items-center text-center">
+          <div class="col-6 col-md-3">
+            <img src="/api/placeholder/200/100" alt="合作夥伴" class="img-fluid">
+          </div>
+          <div class="col-6 col-md-3">
+            <img src="/api/placeholder/200/100" alt="合作夥伴" class="img-fluid">
+          </div>
+          <div class="col-6 col-md-3">
+            <img src="/api/placeholder/200/100" alt="合作夥伴" class="img-fluid">
+          </div>
+          <div class="col-6 col-md-3">
+            <img src="/api/placeholder/200/100" alt="合作夥伴" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="include" include="/footer.htm"></footer>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="/common.b.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>

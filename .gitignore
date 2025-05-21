@@ -1,0 +1,6 @@
+$RECYCLE.BIN/
+*.DS_Store
+assets/
+System Volume Information/
+*.log
+desktop.ini

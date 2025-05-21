@@ -1,0 +1,88 @@
+:root {
+    --primary-color: #003366;
+    --secondary-color: #669933;
+    --accent-color: #ff6600;
+    --light-bg: #f8f9fa;
+    --dark-bg: #212529;
+}
+
+/* use https://cdn.jsdelivr.net/gh/justfont/open-huninn-font@master/font/jf-openhuninn-2.1.ttf*/
+@font-face {
+    font-family: 'JF Open Huninn';
+    src: url('https://cdn.jsdelivr.net/gh/justfont/open-huninn-font@master/font/jf-openhuninn-2.1.ttf') format('truetype');
+}
+
+body {
+    font-family: 'JF Open Huninn', 'Arial', 'Microsoft JhengHei', sans-serif;
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+}
+
+.navbar-brand img {
+    height: 40px;
+    background-color: white;
+    border-radius: 2pt;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    padding: 100px 0;
+}
+
+.research-card {
+    border-left: 4px solid var(--secondary-color);
+    transition: transform 0.3s;
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+}
+
+.material-icons {
+    vertical-align: middle;
+}
+
+.section-heading {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-heading:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.footer {
+    background-color: var(--dark-bg);
+    color: white;
+}
+
+.publication-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.team-member {
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.contact-info {
+    border-left: 3px solid var(--secondary-color);
+}
