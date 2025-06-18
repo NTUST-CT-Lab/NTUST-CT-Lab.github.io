@@ -34,8 +34,11 @@
               <h4>{{ info.lab.pi.name }} {{ info.lab.pi.title }}</h4>
               <p class="text-muted mb-3">國立臺灣科技大學 化學工程系</p>
             </div>
-            
+
             <div class="my-4">
+              <a :href="info.lab.pi.location_link" class="btn btn-outline-danger m-2">
+                <span class="material-icons">location_on</span> {{ info.lab.pi.location }}
+              </a>
               <a :href="'mailto:' + info.lab.pi.email" class="btn btn-outline-primary m-2">
                 <span class="material-icons">email</span> {{ info.lab.pi.email }}
               </a>
