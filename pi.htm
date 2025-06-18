@@ -30,8 +30,11 @@
         <div class="row align-items-center">
           <div class="col-md-4 text-center">
             <img :src="info.lab.pi.image" :alt="info.lab.pi.name" class="rounded-circle img-fluid mb-3 shadow" style="max-width: 200px;">
-            <h4>{{ info.lab.pi.name }} {{ info.lab.pi.title }}</h4>
-            <p class="text-muted mb-3">國立臺灣科技大學 化學工程系</p>
+            <div class="my-1">
+              <h4>{{ info.lab.pi.name }} {{ info.lab.pi.title }}</h4>
+              <p class="text-muted mb-3">國立臺灣科技大學 化學工程系</p>
+            </div>
+            
             <div class="my-4">
               <a :href="'mailto:' + info.lab.pi.email" class="btn btn-outline-primary m-2">
                 <span class="material-icons">email</span> {{ info.lab.pi.email }}
@@ -47,7 +50,7 @@
           <div class="col-md-8">
             <p>游承修教授專研於化學工程製程技術，尤其專注於二氧化碳捕捉、熱物性質量測、相平衡研究與製程強化等領域。擁有豐富的學術研究與產業合作經驗，致力於開發永續且高效能的化工技術。</p>
             
-            <div class="col-md-4 w-100">
+            <div class="col-md-4 my-5 w-100">
               <h4>學歷</h4>
               <div class="table-responsive">
                 <table class="table table-striped">
@@ -68,7 +71,8 @@
                 </table>
               </div>
             </div>
-            <div class="col-md-8 w-100">
+
+            <div class="col-md-8 my-4 w-100">
               <h4>工作經歷</h4>
               <div class="table-responsive">
                 <table class="table table-striped">
