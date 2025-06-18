@@ -1,4 +1,13 @@
-
+function loadContentWithoutTag() {
+    $(".include").each(function() {
+        if (!!$(this).attr("include")) {
+            var $includeObj = $(this);
+            $(this).load($(this).attr("include"), function(html) {
+                $includeObj.after(html).remove(); // remove the include tag
+            })
+        }
+    });
+}
 
 const app = Vue.createApp({
     data() {
@@ -6,7 +15,11 @@ const app = Vue.createApp({
             language: 'zh-tw',
             searchQuery: '',
             yearFilter: 'all',
-            currentMemberFilter: 'all',
+            currentMemberFilter: "全部",
+            window: {
+                innerWidth: window.innerWidth,
+                innerHeight: window.innerHeight,
+            },
             info: {
                 lab: {
                     university: {
@@ -31,14 +44,19 @@ const app = Vue.createApp({
                         image: 'assets/images/pi.jpg',
                         description: '指導教授描述'
                     },
-                    description: '<實驗室描述>',
+                    description: '致力於二氧化碳捕捉、熱物性質量測、相平衡模擬及製程強化的尖端研究',
+                    members_order: ["碩一", "碩二", "碩零"],
+                    members_all: "全部",
                     members: [
                         {
-                            name: '成員姓名',
-                            title: '職稱',
-                            image: 'assets/images/member1.jpg',
-                            description: '成員描述'
-                        }
+                            "name": "姓名",
+                            "titles": ["碩一"],
+                            "image": "assets/default/user.png",
+                            "email": "for@example.com",
+                            "email_edu": "lab@mail.edu.tw",
+                            "research": "詳細研究領域",
+                            "bio": ""
+                        },
                     ]
                 },
                 nav: {
@@ -78,10 +96,6 @@ const app = Vue.createApp({
                     this.info = data;
                 })
                 .catch(error => console.error('Error loading JSON:', error));
-        },
-        filterMembers(type) {
-            this.currentMemberFilter = type;
-            // 在實際應用中，這裡可以篩選不同類型的成員
         }
     }, 
 
@@ -89,8 +103,14 @@ const app = Vue.createApp({
         // system language detection
         const userLang = navigator.language || navigator.userLanguage;
         this.changeLanguage(userLang);
+
+        // change lang attribute in html tag
+        document.documentElement.setAttribute('lang', this.language);
+
+        window.onresize = () => {
+            this.window.innerWidth = window.innerWidth;
+            this.window.innerHeight = window.innerHeight;
+        };
     },
     
 });
-
-app.mount('#app');
