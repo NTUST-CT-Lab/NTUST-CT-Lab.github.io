@@ -1,10 +1,18 @@
-function loadContentWithoutTag() {
+var loadingContentCount = 0;
+
+function loadContentWithoutTag(done) {
     $(".include").each(function() {
         if (!!$(this).attr("include")) {
             var $includeObj = $(this);
             $(this).load($(this).attr("include"), function(html) {
                 $includeObj.after(html).remove(); // remove the include tag
-            })
+                loadingContentCount--;
+                if (loadingContentCount === 0 && done) {
+                    done();
+                }
+            });
+
+            loadingContentCount++;
         }
     });
 }
@@ -16,6 +24,7 @@ const app = Vue.createApp({
             searchQuery: '',
             yearFilter: 'all',
             currentMemberFilter: "全部",
+            currentTime: new Date().toLocaleString(),
             window: {
                 innerWidth: window.innerWidth,
                 innerHeight: window.innerHeight,
@@ -101,8 +110,9 @@ const app = Vue.createApp({
 
     mounted() {
         // system language detection
-        const userLang = navigator.language || navigator.userLanguage;
+        const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage || this.language;
         this.changeLanguage(userLang);
+        localStorage.setItem('lang', this.language);
 
         // change lang attribute in html tag
         document.documentElement.setAttribute('lang', this.language);
@@ -111,6 +121,10 @@ const app = Vue.createApp({
             this.window.innerWidth = window.innerWidth;
             this.window.innerHeight = window.innerHeight;
         };
+
+        setInterval(() => {
+            this.currentTime = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
+        }, 1000);
     },
     
 });
