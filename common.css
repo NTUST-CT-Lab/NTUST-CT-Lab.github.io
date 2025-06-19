@@ -50,19 +50,13 @@ body {
 }
 
 .section-heading {
-    position: relative;
     padding-bottom: 15px;
     margin-bottom: 30px;
 }
 
-.section-heading:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 70px;
-    height: 3px;
-    background-color: var(--accent-color);
+.section-heading span {
+    padding: 10px;
+    border-bottom: 5px solid var(--accent-color);
 }
 
 .footer {
