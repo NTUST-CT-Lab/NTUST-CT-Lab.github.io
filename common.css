@@ -129,3 +129,13 @@ body {
     margin-right: 8px;
     font-weight: bold;
 }
+
+.carousel, .carousel .carousel-inner, .carousel .carousel-inner .carousel-item {
+    aspect-ratio: 16 / 9;
+}
+
+.carousel .carousel-inner .carousel-item .block-bg {
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}

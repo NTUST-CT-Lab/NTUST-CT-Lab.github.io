@@ -40,7 +40,7 @@
                 <span class="material-icons">location_on</span> {{ info.lab.pi.location }}
               </a>
               <a :href="'mailto:' + info.lab.pi.email" class="btn btn-outline-primary m-2">
-                <span class="material-icons">email</span> {{ info.lab.pi.email }}
+                <span class="material-icons">email</span> {{ info.lab.pi.email.replace('@', ' @ ') }}
               </a>
               <a :href="'tel:' + info.lab.pi.phone" class="btn btn-outline-secondary m-2">
                 <span class="material-icons">phone</span> {{ info.lab.pi.phone }}
@@ -55,8 +55,8 @@
             
             <div class="col-md-4 my-5 w-100">
               <h4>學歷</h4>
-              <div class="table-responsive">
-                <table class="table table-striped">
+              <div class="table-responsive rounded-3">
+                <table class="table table-striped m-0 text-center align-middle">
                   <tbody>
                     <tr>
                       <td>國立清華大學</td>
@@ -77,31 +77,36 @@
 
             <div class="col-md-8 my-4 w-100">
               <h4>工作經歷</h4>
-              <div class="table-responsive">
-                <table class="table table-striped">
+              <div class="table-responsive rounded-3">
+                <table class="table table-striped m-0 text-center align-middle">
                   <tbody>
                     <tr>
-                      <td>國立臺灣科技大學化學工程系</td>
+                      <td>國立臺灣科技大學</td>
+                      <td>化學工程系</td>
                       <td>助理教授</td>
                       <td>2022/08 - 迄今</td>
                     </tr>
                     <tr>
-                      <td>中國鋼鐵股份有限公司 T72</td>
+                      <td>中國鋼鐵股份有限公司</td>
+                      <td>T72</td>
                       <td>工程師</td>
                       <td>2021/2 - 2022/7</td>
                     </tr>
                     <tr>
-                      <td>Texas Tech University Chemical Engineering</td>
+                      <td>Texas Tech University</td>
+                      <td>Chemical Engineering</td>
                       <td>博士後研究員</td>
                       <td>2019/7 - 2021/1</td>
                     </tr>
                     <tr>
                       <td>典仲有限公司</td>
+                      <td></td>
                       <td>製程發展工程師</td>
                       <td>2017/12 - 2019/5</td>
                     </tr>
                     <tr>
-                      <td>Texas Tech University Chemical Engineering</td>
+                      <td>Texas Tech University</td>
+                      <td>Chemical Engineering</td>
                       <td>博士後研究員</td>
                       <td>2016/10 - 2017/10</td>
                     </tr>
