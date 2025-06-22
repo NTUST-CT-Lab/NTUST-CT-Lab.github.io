@@ -21,6 +21,9 @@
   
   <!-- Custom JS -->
   <script src="/common.t.js"></script>
+
+  <!-- Custom Template -->
+  <template class="include" include="/templates/carousel.vue"></template>
   
   <div id="app" class="d-flex flex-column justify-content-between min-vh-100">
     <!-- 導航列 -->
@@ -76,44 +79,7 @@
             <p>我們致力於培養學生在化學工程領域的專業知識和解決問題的能力，並與國內外學術界和產業界保持密切合作，共同推動相關領域的技術發展。</p>
           </div>
           <div class="col-lg-6 my-2">
-            <div id="carouselIntroduction" class="carousel slide">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselIntroduction" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselIntroduction" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselIntroduction" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active h-100">
-                  <div class="block-bg" style="background-image: url('/assets/pixabay/ai-generated-9025532.jpg');"></div>
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                  </div>
-                </div>
-                <div class="carousel-item h-100">
-                  <div class="block-bg" style="background-image: url('/assets/pixabay/analysis-3707159.jpg');"></div>
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                  </div>
-                </div>
-                <div class="carousel-item h-100">
-                  <div class="block-bg" style="background-image: url('/assets/pixabay/science-6566158.svg');"></div>
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                  </div>
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselIntroduction" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselIntroduction" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
+            <carousel name="Introduction" :content="info.home.introduction.carousel"></carousel>
           </div>
         </div>
       </div>
@@ -240,44 +206,7 @@
     <section class="py-5 bg-light">
       <div class="container">
         <h3 class="section-heading"><span>活動花絮</span></h3>
-        <div id="carouselActivity" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselActivity" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselActivity" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselActivity" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active h-100">
-              <div class="block-bg" style="background-image: url('/assets/pixabay/ai-generated-9025532.jpg');"></div>
-              <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
-              </div>
-            </div>
-            <div class="carousel-item h-100">
-              <div class="block-bg" style="background-image: url('/assets/pixabay/analysis-3707159.jpg');"></div>
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
-              </div>
-            </div>
-            <div class="carousel-item h-100">
-              <div class="block-bg" style="background-image: url('/assets/pixabay/science-6566158.svg');"></div>
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselActivity" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselActivity" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+        <carousel name="Activity" :content="info.home.activities"></carousel>
       </div>
     </section>
 

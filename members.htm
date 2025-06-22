@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="/common.css">
 </head>
 <body>
+
+  <!-- Custom JS -->
   <script src="/common.t.js"></script>
 
   <div id="app" class="d-flex flex-column justify-content-between min-vh-100">
@@ -32,7 +34,6 @@
         <h3 class="section-heading"><span>實驗室成員</span></h3>
         
         <!-- 分類標籤 -->
-
         <ul class="nav nav-pills mb-4 justify-content-center">
           <li class="nav-item">
             <button class="nav-link" :class="{ active: currentMemberFilter === info.lab.members_all }" @click="currentMemberFilter = info.lab.members_all">{{ info.lab.members_all }}</button>
@@ -52,13 +53,13 @@
                   <p class="card-text text-muted mb-2">
                     <span v-for="(title, index) in m.titles" :key="index">{{ title }}{{ index < m.titles.length - 1 ? '　' : '' }}</span>
                   </p>
-                  <p class="card-text small" v-html="m.research"></p>
+                  <p v-if="m.research" class="card-text small" v-html="m.research"></p>
                   <div class="mt-3">
-                    <a :href="'mailto:' + m.email" class="btn btn-sm btn-outline-primary">
-                      <span class="material-icons small">email</span>
+                    <a v-if="m.email" :href="'mailto:' + m.email" class="btn btn-sm btn-outline-primary m-1">
+                      <span class="material-icons small">email</span> <span v-html="breaklinableEmail(m.email)"></span>
                     </a>
-                    <a v-if="m.email_edu" :href="'mailto:' + m.email_edu" class="btn btn-sm btn-outline-secondary ms-2">
-                      <span class="material-icons small">school</span>
+                    <a v-if="m.email_edu" :href="'mailto:' + m.email_edu" class="btn btn-sm btn-outline-secondary m-1">
+                      <span class="material-icons small">school</span> <span v-html="breaklinableEmail(m.email_edu)"></span>
                     </a>
                   </div>
                 </div>

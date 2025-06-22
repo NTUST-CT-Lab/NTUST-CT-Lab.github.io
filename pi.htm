@@ -17,8 +17,11 @@
   <link rel="stylesheet" href="/common.css">
 </head>
 <body>
+
+  <!-- Custom JS -->
+  <script src="/common.t.js"></script>
+  
   <div id="app" class="d-flex flex-column justify-content-between min-vh-100">
-    <script src="/common.t.js"></script>
 
     <!-- 導航列 -->
     <header class="include" include="/nav.htm"></header>
@@ -40,7 +43,7 @@
                 <span class="material-icons">location_on</span> {{ info.lab.pi.location }}
               </a>
               <a :href="'mailto:' + info.lab.pi.email" class="btn btn-outline-primary m-2">
-                <span class="material-icons">email</span> {{ info.lab.pi.email.replace('@', ' @ ') }}
+                <span class="material-icons">email</span> <span v-html="breaklinableEmail(info.lab.pi.email)"></span>
               </a>
               <a :href="'tel:' + info.lab.pi.phone" class="btn btn-outline-secondary m-2">
                 <span class="material-icons">phone</span> {{ info.lab.pi.phone }}

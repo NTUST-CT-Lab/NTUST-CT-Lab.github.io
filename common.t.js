@@ -84,9 +84,15 @@ const app = Vue.createApp({
                     announcement: {
                         title: '公告欄',
                         content: '歡迎來到我們的實驗室網站！我們將定期更新最新消息和研究成果，敬請關注！'
-                    },
-                    research: {
-                        title: '研究領域',
+                    }
+                },
+                research: {
+                    title: '研究領域',
+                    equipment: {
+                        title: '專業設備',
+                        carousel: [
+                            
+                        ]
                     }
                 }
             }
@@ -105,10 +111,13 @@ const app = Vue.createApp({
                     this.info = data;
                 })
                 .catch(error => console.error('Error loading JSON:', error));
+        },
+        breaklinableEmail(email) {
+            return email.replace(/@/g, '<wbr>@').replace(/\./g, '<wbr>.');
         }
     }, 
 
-    mounted() {
+    created() {
         // system language detection
         const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage || this.language;
         this.changeLanguage(userLang);
