@@ -105,7 +105,7 @@ const app = Vue.createApp({
             this.language = String(lang).toLowerCase();
 
             // parse assets/info_{lang}.json to this.info
-            fetch(`assets/info_${this.language}.json`)
+            fetch(`/assets/info_${this.language}.json`)
                 .then(response => response.json())
                 .then(data => {
                     this.info = data;
