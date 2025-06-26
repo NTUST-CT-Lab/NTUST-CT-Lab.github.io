@@ -1,14 +1,41 @@
+class Callbacks {
+    constructor() {
+        this.callbacks = [];
+    }
+
+    add(callback) {
+        if (typeof callback === 'function') {
+            this.callbacks.push(callback);
+            return this.callbacks.length - 1; // return index of the callback
+        }
+    }
+
+    remove(index) {
+        if (index >= 0 && index < this.callbacks.length) {
+            this.callbacks.splice(index, 1);
+        }
+    }
+
+    clear() {
+        this.callbacks = [];
+    }
+
+    run(...args) {
+        this.callbacks.forEach(callback => callback(...args));
+    }
+}
+
 var loadingContentCount = 0;
 
-function loadContentWithoutTag(done) {
+function loadContentWithoutTag(done = null) {
     $(".include").each(function() {
         if (!!$(this).attr("include")) {
             var $includeObj = $(this);
             $(this).load($(this).attr("include"), function(html) {
                 $includeObj.after(html).remove(); // remove the include tag
                 loadingContentCount--;
-                if (loadingContentCount === 0 && done) {
-                    done();
+                if (loadingContentCount === 0) {
+                    done?.();
                 }
             });
 
@@ -17,10 +44,18 @@ function loadContentWithoutTag(done) {
     });
 }
 
+function startAllCarousels() {
+    // Start all carousels
+    $('.carousel').each(function(i, e) {
+        bootstrap.Carousel.getOrCreateInstance(e)?.to(0);
+    });
+}
+
 const app = Vue.createApp({
     data() {
         return {
             language: 'zh-tw',
+            langChanged: new Callbacks(),
             searchQuery: '',
             yearFilter: 'all',
             currentMemberFilter: "全部",
@@ -110,6 +145,7 @@ const app = Vue.createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.info = data;
+                    this.langChanged.run(this.language);
                 })
                 .catch(error => console.error('Error loading JSON:', error));
         },
@@ -120,6 +156,10 @@ const app = Vue.createApp({
 
     created() {
         // system language detection
+        this.langChanged.add((lang) => {
+            startAllCarousels();
+        });
+
         const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage || this.language;
         this.changeLanguage(userLang);
         localStorage.setItem('lang', this.language);
