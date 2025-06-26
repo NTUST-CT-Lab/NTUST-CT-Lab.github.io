@@ -1,5 +1,6 @@
 .lab-background {
     width: 100%;
+    min-height: 400px;
     aspect-ratio: 16 / 9;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
     position: relative;
@@ -70,7 +71,7 @@
     justify-content: center;
     color: white;
     text-align: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
 }
 
 .lab-title {
