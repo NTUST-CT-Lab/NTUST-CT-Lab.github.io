@@ -77,6 +77,7 @@ const app = Vue.createApp({
                 },
                 home: {
                     introduction: {
+                        carousel: [],
                         title: '實驗室簡介',
                         content: '國立臺灣科技大學化學工程所游承修教授的化工製程技術實驗室，專注於開發創新解決方案，應對當代化學工程的挑戰。我們的研究結合了實驗測量與理論模擬，以促進化工製程的效率、環保性及經濟效益。我們致力於培養學生在化學工程領域的專業知識和解決問題的能力，並與國內外學術界和產業界保持密切合作，共同推動相關領域的技術發展。'
                     }, 
@@ -84,15 +85,15 @@ const app = Vue.createApp({
                     announcement: {
                         title: '公告欄',
                         content: '歡迎來到我們的實驗室網站！我們將定期更新最新消息和研究成果，敬請關注！'
-                    }
+                    }, 
+                    // 活動花絮
+                    activities: []
                 },
                 research: {
                     title: '研究領域',
                     equipment: {
                         title: '專業設備',
-                        carousel: [
-                            
-                        ]
+                        carousel: []
                     }
                 }
             }

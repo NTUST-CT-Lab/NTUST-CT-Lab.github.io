@@ -31,18 +31,15 @@
 
     <!-- 首頁英雄區塊 -->
     <section class="lab-background">
+      <!-- 首頁輪播 -->
+      <div class="position-absolute w-100">
+        <carousel name="Landing" :content="info.home.activities.concat(info.research.equipment.carousel)"></carousel>
+      </div>
+      
       <!-- 科技感光效 -->
       <div class="tech-glow"></div>
       <div class="tech-glow"></div>
       <div class="tech-glow"></div>
-      
-      <!-- 實驗室設備 -->
-      <div v-show="window.innerWidth >= 768">
-        <div class="equipment reactor"></div>
-        <div class="equipment analyzer"></div>
-        <div class="equipment control-panel"></div>
-        <div class="equipment temperature-gauge"></div>
-      </div>
       
       <!-- CO2 分子動畫 -->
       <div class="molecules">
@@ -53,11 +50,6 @@
           <div class="molecule"></div>
           <div class="molecule"></div>
       </div>
-      
-      <!-- 數據流效果 -->
-      <div class="data-stream"></div>
-      <div class="data-stream"></div>
-      <div class="data-stream"></div>
       
       <!-- 標題覆蓋層 -->
       <div class="overlay">
@@ -79,7 +71,7 @@
             <p>我們致力於培養學生在化學工程領域的專業知識和解決問題的能力，並與國內外學術界和產業界保持密切合作，共同推動相關領域的技術發展。</p>
           </div>
           <div class="col-lg-6 my-2">
-            <carousel name="Introduction" :content="info.home.introduction.carousel"></carousel>
+            <carousel name="Introduction" :content="info.home.introduction.carousel" switcher="true" indicators="true" description="true"></carousel>
           </div>
         </div>
       </div>
@@ -206,7 +198,7 @@
     <section class="py-5 bg-light">
       <div class="container">
         <h3 class="section-heading"><span>活動花絮</span></h3>
-        <carousel name="Activity" :content="info.home.activities"></carousel>
+        <carousel name="Activity" :content="info.home.activities" switcher="true" indicators="true" description="true"></carousel>
       </div>
     </section>
 

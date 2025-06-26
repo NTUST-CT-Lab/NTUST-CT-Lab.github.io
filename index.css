@@ -1,102 +1,10 @@
 .lab-background {
     width: 100%;
-    height: 400px;
+    aspect-ratio: 16 / 9;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-/* 實驗室設備 */
-.equipment {
-    position: absolute;
-    background: rgba(255,255,255,0.9);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.reactor {
-    width: 80px;
-    height: 120px;
-    left: 100px;
-    top: 50px;
-    background: linear-gradient(to bottom, #e8e8e8, #d0d0d0);
-    border: 3px solid #666;
-    border-radius: 15px;
-}
-
-.reactor::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #ff4444;
-    border-radius: 50%;
-    top: 20px;
-    left: 30px;
-    box-shadow: 0 0 10px #ff4444;
-}
-
-.reactor::after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 3px;
-    background: #666;
-    top: 50px;
-    left: 10px;
-}
-
-.analyzer {
-    width: 100px;
-    height: 80px;
-    right: 150px;
-    top: 20px;
-    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-    border: 2px solid #888;
-}
-
-.analyzer::before {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 30px;
-    background: #000;
-    top: 25px;
-    left: 20px;
-    border-radius: 3px;
-}
-
-.control-panel {
-    width: 120px;
-    height: 90px;
-    left: 300px;
-    top: 200px;
-    background: linear-gradient(to bottom, #ddd, #ccc);
-    border: 2px solid #999;
-}
-
-.control-panel::before {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 40px;
-    background: #333;
-    top: 10px;
-    left: 20px;
-    border-radius: 5px;
-}
-
-.control-panel::after {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #00ff00;
-    border-radius: 50%;
-    bottom: 15px;
-    left: 25px;
-    box-shadow: 0 0 8px #00ff00;
 }
 
 /* CO2 分子動畫 */
@@ -126,59 +34,6 @@
 @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
     50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-}
-
-/* 數據流效果 */
-.data-stream {
-    position: absolute;
-    width: 2px;
-    height: 40px;
-    background: linear-gradient(to bottom, transparent, #00ffff, transparent);
-    animation: stream 2s linear infinite;
-}
-
-.data-stream:nth-child(1) { left: 200px; top: 50px; animation-delay: 0s; }
-.data-stream:nth-child(2) { left: 300px; top: 100px; animation-delay: 0.5s; }
-.data-stream:nth-child(3) { left: 400px; top: 80px; animation-delay: 1s; }
-
-@keyframes stream {
-    0% { transform: translateY(-50px); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(50px); opacity: 0; }
-}
-
-/* 溫度指示器 */
-.temperature-gauge {
-    position: absolute;
-    width: 60px;
-    height: 100px;
-    right: 80px;
-    top: 250px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 30px;
-    border: 3px solid #666;
-}
-
-.temperature-gauge::before {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 60px;
-    background: linear-gradient(to top, #ff4444, #ffff44, #44ff44);
-    bottom: 10px;
-    left: 7px;
-    border-radius: 20px;
-}
-
-.temperature-gauge::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #ff4444;
-    border-radius: 50%;
-    bottom: 5px;
-    left: 17px;
 }
 
 /* 科技感光效 */
@@ -213,6 +68,7 @@
     justify-content: center;
     color: white;
     text-align: center;
+    backdrop-filter: blur(5px);
 }
 
 .lab-title {
