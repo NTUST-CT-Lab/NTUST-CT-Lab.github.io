@@ -29,13 +29,13 @@
     <!-- 指導教授 -->
     <section id="pi" class="py-5 bg-light">
       <div class="container">
-        <h3 class="section-heading"><span>指導教授</span></h3>
+        <h3 class="section-heading"><span>{{ info.pi.bio.title }}</span></h3>
         <div class="row align-items-center">
           <div class="col-md-4 text-center">
             <img :src="info.lab.pi.image" :alt="info.lab.pi.name" class="rounded-circle img-fluid mb-3 shadow" style="max-width: 200px;">
             <div class="my-1">
-              <h4>{{ info.lab.pi.name }} {{ info.lab.pi.title }}</h4>
-              <p class="text-muted mb-3">國立臺灣科技大學 化學工程系</p>
+              <h4>{{ info.lab.pi.name_title }}</h4>
+              <p class="text-muted mb-3">{{ info.lab.pi.company_department }}</p>
             </div>
 
             <div class="my-4">
@@ -54,24 +54,16 @@
             </div>
           </div>
           <div class="col-md-8">
-            <p>游承修教授專研於化學工程製程技術，尤其專注於二氧化碳捕捉、熱物性質量測、相平衡研究與製程強化等領域。擁有豐富的學術研究與產業合作經驗，致力於開發永續且高效能的化工技術。</p>
+            <p>{{ info.lab.pi.description }}</p>
             
             <div class="col-md-4 my-5 w-100">
-              <h4>學歷</h4>
+              <h4>{{ info.pi.bio.education.title }}</h4>
               <div class="table-responsive rounded-3">
                 <table class="table table-striped m-0 text-center align-middle">
                   <tbody>
-                    <tr>
-                      <td>國立清華大學</td>
-                      <td>化學工程博士</td>
-                    </tr>
-                    <tr>
-                      <td>中原大學</td>
-                      <td>化學工程碩士</td>
-                    </tr>
-                    <tr>
-                      <td>中原大學</td>
-                      <td>化學工程學士</td>
+                    <tr v-for="(item, index) in info.pi.bio.education.list" :key="index">
+                      <td>{{ item.university }}</td>
+                      <td>{{ item.field_degree }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -79,39 +71,15 @@
             </div>
 
             <div class="col-md-8 my-4 w-100">
-              <h4>工作經歷</h4>
+              <h4>{{ info.pi.bio.work.title }}</h4>
               <div class="table-responsive rounded-3">
                 <table class="table table-striped m-0 text-center align-middle">
                   <tbody>
-                    <tr>
-                      <td>國立臺灣科技大學</td>
-                      <td>化學工程系</td>
-                      <td>助理教授</td>
-                      <td>2022/08 - 迄今</td>
-                    </tr>
-                    <tr>
-                      <td>中國鋼鐵股份有限公司</td>
-                      <td>T72</td>
-                      <td>工程師</td>
-                      <td>2021/2 - 2022/7</td>
-                    </tr>
-                    <tr>
-                      <td>Texas Tech University</td>
-                      <td>Chemical Engineering</td>
-                      <td>博士後研究員</td>
-                      <td>2019/7 - 2021/1</td>
-                    </tr>
-                    <tr>
-                      <td>典仲有限公司</td>
-                      <td></td>
-                      <td>製程發展工程師</td>
-                      <td>2017/12 - 2019/5</td>
-                    </tr>
-                    <tr>
-                      <td>Texas Tech University</td>
-                      <td>Chemical Engineering</td>
-                      <td>博士後研究員</td>
-                      <td>2016/10 - 2017/10</td>
+                    <tr v-for="(item, index) in info.pi.bio.work.list" :key="index">
+                      <td>{{ item.company }}</td>
+                      <td>{{ item.department }}</td>
+                      <td>{{ item.position }}</td>
+                      <td>{{ item.duration }}</td>
                     </tr>
                   </tbody>
                 </table>

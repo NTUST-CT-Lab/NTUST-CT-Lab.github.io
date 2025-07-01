@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 400px;
     aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
+    background: linear-gradient(135deg, #ffb347 0%, #ff7e5f 50%, #ff6a00 100%);
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -19,10 +19,10 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #00ff88;
+    background: #ffb347;
     border-radius: 50%;
     animation: float 4s ease-in-out infinite;
-    box-shadow: 0 0 6px #00ff88;
+    box-shadow: 0 0 8px #ff7e5f, 0 0 16px #ffb347;
 }
 
 .molecule:nth-child(1) { left: 50px; top: 100px; animation-delay: 0s; }
@@ -44,7 +44,7 @@
     position: absolute;
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, rgba(0,255,255,0.3), transparent);
+    background: radial-gradient(circle, rgba(255, 183, 77, 0.4), transparent);
     border-radius: 50%;
     animation: pulse 3s ease-in-out infinite;
 }
@@ -65,7 +65,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(0,51,102,0.7), rgba(102,153,51,0.5));
+    background: linear-gradient(45deg, rgba(255,140,0,0.25), rgba(255,94,98,0.10));
     display: flex;
     align-items: center;
     justify-content: center;

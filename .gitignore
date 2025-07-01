@@ -4,3 +4,5 @@ assets/
 System Volume Information/
 *.log
 desktop.ini
+web.config
+Thumbs.db

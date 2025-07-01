@@ -58,6 +58,7 @@ const app = Vue.createApp({
             langChanged: new Callbacks(),
             searchQuery: '',
             yearFilter: 'all',
+            nowPubPage: 1,
             currentMemberFilter: "全部",
             currentTime: new Date().toLocaleString(),
             window: {
@@ -84,7 +85,9 @@ const app = Vue.createApp({
                     name: '化工製程技術實驗室',
                     pi: {
                         name: '游承修',
-                        title: '教授',
+                        title: '助理教授',
+                        name_title: '游承修 助理教授',
+                        company_department: '國立臺灣科技大學 化學工程系',
                         image: 'assets/images/pi.jpg',
                         description: '指導教授描述'
                     },
@@ -122,7 +125,10 @@ const app = Vue.createApp({
                         content: '歡迎來到我們的實驗室網站！我們將定期更新最新消息和研究成果，敬請關注！'
                     }, 
                     // 活動花絮
-                    activities: []
+                    activities: {
+                        title: "活動花絮",
+                        carousel: []
+                    }
                 },
                 research: {
                     title: '研究領域',
@@ -130,6 +136,30 @@ const app = Vue.createApp({
                         title: '專業設備',
                         carousel: []
                     }
+                },
+                pi: {
+                    bio: {
+                        title: '主持教授',
+                        education: {
+                            title: '學歷',
+                            list: []
+                        },
+                        work: {
+                            title: '工作經歷',
+                            list: []
+                        },
+                    }
+                },
+                publications: {
+                    title: '文獻發表',
+                    search: {
+                        placeholder: '搜尋論文...'
+                    },
+                    filter: {
+                        year: '年份',
+                        all: '全部',
+                    },
+                    list: []
                 }
             }
         }

@@ -11,7 +11,7 @@
   <!--JQuery-->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <!-- Vue.js -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 
   <!--Custom CSS-->
   <link rel="stylesheet" href="/common.css">
@@ -33,7 +33,7 @@
     <section class="lab-background">
       <!-- 首頁輪播 -->
       <div class="position-absolute w-100">
-        <carousel name="Landing" style="min-height: 400px;" :content="info.home.activities.concat(info.research.equipment.carousel)"></carousel>
+        <carousel name="Landing" style="min-height: 400px;" :content="info.home.activities.carousel"></carousel>
       </div>
       
       <!-- 科技感光效 -->
@@ -199,8 +199,8 @@
     <!-- 活動花絮 -->
     <section class="py-5 bg-light">
       <div class="container">
-        <h3 class="section-heading"><span>活動花絮</span></h3>
-        <carousel name="Activity" :content="info.home.activities" switcher="true" indicators="true" description="true"></carousel>
+        <h3 class="section-heading"><span>{{ info.home.activities.title }}</span></h3>
+        <carousel name="Activity" :content="info.home.activities.carousel" switcher="true" indicators="true" description="true"></carousel>
       </div>
     </section>
 

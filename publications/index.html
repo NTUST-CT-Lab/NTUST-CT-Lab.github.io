@@ -31,13 +31,13 @@
     <!-- 發表論文 -->
     <section id="publications" class="py-5 bg-light">
       <div class="container">
-        <h3 class="section-heading"><span>發表論文</span></h3>
+        <h3 class="section-heading"><span>{{ info.publications.title }}</span></h3>
         
         <!-- 篩選選項 -->
         <div class="row mb-4">
           <div class="col-md-6">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="搜尋論文..." v-model="searchQuery">
+              <input type="text" class="form-control" :placeholder="info.publications.search.placeholder" v-model="searchQuery">
               <button class="btn btn-outline-secondary" type="button">
                 <span class="material-icons">search</span>
               </button>
@@ -45,23 +45,23 @@
           </div>
           <div class="col-md-6">
             <select title="yearFilter" class="form-select" v-model="yearFilter">
-              <option value="all">所有年份</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
+              <option value="all">{{ info.publications.filter.all }}</option>
+              <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i)" :key="y" :value="y">{{ y }}</option>
             </select>
           </div>
         </div>
         
         <!-- 論文列表 -->
-        <div class="publication-item" v-for="index in 5" :key="'pub'+index">
-          <h5>Development of novel adsorbents for selective CO2 capture from flue gas</h5>
-          <p class="text-muted mb-2">You, C.S., Wang, D.M., Lin, X.H., Chen, Y.Z.</p>
-          <p class="mb-2"><strong>Journal of CO2 Utilization</strong>, 2024, Vol. 45, pp. 123-135</p>
+        <div class="publication-item" v-for="(item, index) in info.publications.list" :key="'pub'+index">
+          <a :href="item.link" class="text-decoration-none text-dark">
+            <h5>{{ item.title }}</h5>
+          </a>
+          <p class="text-muted mb-2">{{ item.authors }}</p>
+          <p class="mb-2"><strong>{{ item.journal }}</strong>, {{ item.year }}, Vol. {{ item.volume }}, pp. {{ item.pages }}</p>
           <div>
-            <span class="badge bg-success me-1">二氧化碳捕捉</span>
-            <span class="badge bg-primary me-1">吸附材料</span>
+            <span class="badge me-1" v-for="(tag, tagIndex) in item.tags" :key="'tag'+tagIndex" :style="{ backgroundColor: tag.color }">
+              {{ tag.name }}
+            </span>
           </div>
         </div>
         
