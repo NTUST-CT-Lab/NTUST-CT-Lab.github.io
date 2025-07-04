@@ -29,60 +29,29 @@
     <!-- 內容區域 -->
 
     <!-- 發表論文 -->
-    <section id="publications" class="py-5 bg-light">
+    <section id="publications" class="py-5">
       <div class="container">
         <h3 class="section-heading"><span>{{ info.publications.title }}</span></h3>
         
         <!-- 篩選選項 -->
-        <div class="row mb-4">
-          <div class="col-md-6">
-            <div class="input-group">
-              <input type="text" class="form-control" :placeholder="info.publications.search.placeholder" v-model="searchQuery">
-              <button class="btn btn-outline-secondary" type="button">
-                <span class="material-icons">search</span>
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <select title="yearFilter" class="form-select" v-model="yearFilter">
-              <option value="all">{{ info.publications.filter.all }}</option>
-              <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i)" :key="y" :value="y">{{ y }}</option>
-            </select>
-          </div>
-        </div>
+        <select title="yearFilter" class="form-select" v-model="yearFilter">
+          <option value="all">{{ info.publications.filter.all }}</option>
+          <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i)" :value="y">{{ y }}</option>
+        </select>
         
         <!-- 論文列表 -->
-        <div class="publication-item" v-for="(item, index) in info.publications.list" :key="'pub'+index">
+        <div class="publication-item" v-for="(item, index) in info.publications.list">
           <a :href="item.link" class="text-decoration-none text-dark">
             <h5>{{ item.title }}</h5>
           </a>
           <p class="text-muted mb-2">{{ item.authors }}</p>
           <p class="mb-2"><strong>{{ item.journal }}</strong>, {{ item.year }}, Vol. {{ item.volume }}, pp. {{ item.pages }}</p>
           <div>
-            <span class="badge me-1" v-for="(tag, tagIndex) in item.tags" :key="'tag'+tagIndex" :style="{ backgroundColor: tag.color }">
+            <span class="badge me-1" v-for="(tag, tagIndex) in item.tags" :style="{ backgroundColor: tag.color }">
               {{ tag.name }}
             </span>
           </div>
         </div>
-        
-        <!-- 分頁 -->
-        <nav class="mt-4">
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" aria-label="上一頁">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="下一頁">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </section>
 

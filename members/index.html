@@ -38,7 +38,7 @@
           <li class="nav-item">
             <button class="nav-link" :class="{ active: currentMemberFilter === info.lab.members_all }" @click="currentMemberFilter = info.lab.members_all">{{ info.lab.members_all }}</button>
           </li>
-          <li v-for="c in info.lab.members_order" :key="c" class="nav-item">
+          <li v-for="c in info.lab.members_order" class="nav-item">
             <button class="nav-link" :class="{ active: currentMemberFilter === c }" @click="currentMemberFilter = c">{{ c }}</button>
           </li>
         </ul>
@@ -51,7 +51,7 @@
                 <div class="card-body text-center">
                   <h5 class="card-title mb-1">{{ m.name }}</h5>
                   <p class="card-text text-muted mb-2">
-                    <span v-for="(title, index) in m.titles" :key="index">{{ title }}{{ index < m.titles.length - 1 ? '　' : '' }}</span>
+                    <span v-for="(title, index) in m.titles">{{ title }}{{ index < m.titles.length - 1 ? '　' : '' }}</span>
                   </p>
                   <p v-if="m.research" class="card-text small" v-html="m.research"></p>
                   <div class="mt-3">
