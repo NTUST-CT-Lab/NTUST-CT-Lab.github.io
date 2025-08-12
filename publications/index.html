@@ -36,7 +36,7 @@
         <!-- 篩選選項 -->
         <select title="yearFilter" class="form-select" v-model="yearFilter">
           <option value="all">{{ info.publications.filter.all }}</option>
-          <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i).sort()" :value="y">{{ y }}</option>
+          <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i).sort().reverse()" :value="y">{{ y }}</option>
         </select>
         
         <!-- 論文列表 -->
