@@ -36,20 +36,29 @@
         <!-- 篩選選項 -->
         <select title="yearFilter" class="form-select" v-model="yearFilter">
           <option value="all">{{ info.publications.filter.all }}</option>
-          <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i)" :value="y">{{ y }}</option>
+          <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i).sort()" :value="y">{{ y }}</option>
         </select>
         
         <!-- 論文列表 -->
-        <div class="publication-item" v-for="(item, index) in info.publications.list">
-          <a :href="item.link" class="text-decoration-none text-dark">
-            <h5>{{ item.title }}</h5>
-          </a>
-          <p class="text-muted mb-2">{{ item.authors }}</p>
-          <p class="mb-2"><strong>{{ item.journal }}</strong>, {{ item.year }}, Vol. {{ item.volume }}, pp. {{ item.pages }}</p>
-          <div>
-            <span class="badge me-1" v-for="(tag, tagIndex) in item.tags" :style="{ backgroundColor: tag.color }">
-              {{ tag.name }}
-            </span>
+        <div v-for="(item, idx) in info.publications.list">
+          <div class="publication-item" v-if="yearFilter === 'all' || item.year === yearFilter">
+            <a :href="item.link" rel="noopener" target="_blank" class="text-decoration-none text-dark fst-italic">
+              <h5>
+                <span v-html="item.title"></span>
+                <span v-if="item.link" class="material-icons text-muted fs-6 text mx-1">open_in_new</span>
+              </h5>
+            </a>
+            <p class="text-muted mb-2">
+              <span v-for="(author, authorIndex) in item.authors" :key="authorIndex">
+                {{ author }}<span v-if="authorIndex < item.authors.length - 1">, </span>
+              </span>
+            </p>
+            <p class="mb-2"><strong>{{ item.journal }}</strong>, {{ item.year }}, Vol. {{ item.volume }}, pp. {{ item.pages }}</p>
+            <div>
+              <span class="badge me-1" v-for="(tag, tagIndex) in item.tags" :style="{ backgroundColor: tag.color }">
+                {{ tag.name }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
