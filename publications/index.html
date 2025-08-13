@@ -32,16 +32,45 @@
     <section id="publications" class="py-5">
       <div class="container">
         <h3 class="section-heading"><span>{{ info.publications.title }}</span></h3>
-        
-        <!-- 篩選選項 -->
-        <select title="yearFilter" class="form-select" v-model="yearFilter">
-          <option value="all">{{ info.publications.filter.all }}</option>
-          <option v-for="y in info.publications.list.map(pub => pub.year).filter((v, i, a) => a.indexOf(v) === i).sort().reverse()" :value="y">{{ y }}</option>
-        </select>
+
+        <div class="row align-items-center justify-content-between">
+          <!-- 搜尋欄 -->
+          <div class="col-auto m-1">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋論文..." v-model="searchQuery">
+              <span class="input-group-text"><i class="material-icons">search</i></span>
+            </div>
+          </div>
+          
+          <!-- 篩選選項 -->
+          <div class="col-auto row m-1">
+            <div class="col-auto">
+              <label for="yearFilter" class="col-form-label">{{ info.publications.filter.year }}</label>
+            </div>
+            <div class="col-auto">
+              <select title="yearFilter" class="form-select" v-model="publicationFilter.year">
+                <option value="all">{{ info.publications.filter.all }}</option>
+                <option v-for="y in [...new Set(info.publications.list.map(pub => pub.year))].sort().reverse()" :value="y">{{ y }}</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="col-auto row m-1">
+            <div class="col-auto">
+              <label for="tagFilter" class="col-form-label">{{ info.publications.filter.tag }}</label>
+            </div>
+            <div class="col-auto">
+              <select title="tagFilter" class="form-select" v-model="publicationFilter.tag">
+                <option value="all">{{ info.publications.filter.all }}</option>
+                <option v-for="tag in [...new Map(info.publications.list.flatMap(pub => pub.tags).map(tag => [tag.name + tag.color, tag])).values()]" :value="tag.name" :style="{ backgroundColor: tag.color }">{{ tag.name }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
         
         <!-- 論文列表 -->
         <div v-for="(item, idx) in info.publications.list">
-          <div class="publication-item" v-if="yearFilter === 'all' || item.year === yearFilter">
+          <div class="publication-item" v-if="(publicationFilter.year === 'all' || item.year === publicationFilter.year) && (publicationFilter.tag === 'all' || item.tags.some(tag => tag.name === publicationFilter.tag)) && (searchQuery === '' || item.title.toLowerCase().includes(searchQuery.toLowerCase()))">
             <a :href="item.link" rel="noopener" target="_blank" class="text-decoration-none text-dark fst-italic">
               <h5>
                 <span v-html="item.title"></span>

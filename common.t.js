@@ -57,7 +57,10 @@ const app = Vue.createApp({
             language: 'zh-tw',
             langChanged: new Callbacks(),
             searchQuery: '',
-            yearFilter: 'all',
+            publicationFilter: {
+                year: 'all',
+                tag: 'all'
+            },
             nowPubPage: 1,
             currentMemberFilter: "全部",
             currentTime: new Date().toLocaleString(),
@@ -156,8 +159,9 @@ const app = Vue.createApp({
                         placeholder: '搜尋論文...'
                     },
                     filter: {
-                        year: '年份',
                         all: '全部',
+                        year: '年份',
+                        tag: '分類標籤'
                     },
                     list: []
                 }
