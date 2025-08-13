@@ -33,7 +33,7 @@
       <div class="container">
         <h3 class="section-heading"><span>{{ info.publications.title }}</span></h3>
 
-        <div class="row align-items-center justify-content-between">
+        <div class="row align-items-center justify-content-between position-sticky bg-white rounded-3 shadow-sm p-3" style="top: 5rem;">
           <!-- 搜尋欄 -->
           <div class="col-auto m-1">
             <div class="input-group">
@@ -71,12 +71,15 @@
         <!-- 論文列表 -->
         <div v-for="(item, idx) in info.publications.list">
           <div class="publication-item" v-if="(publicationFilter.year === 'all' || item.year === publicationFilter.year) && (publicationFilter.tag === 'all' || item.tags.some(tag => tag.name === publicationFilter.tag)) && (searchQuery === '' || item.title.toLowerCase().includes(searchQuery.toLowerCase()))">
-            <a :href="item.link" rel="noopener" target="_blank" class="text-decoration-none text-dark fst-italic">
-              <h5>
+            <h5 v-if="item.link">
+              <a :href="item.link" rel="noopener" target="_blank" class="text-decoration-none text-dark fst-italic">
                 <span v-html="item.title"></span>
-                <span v-if="item.link" class="material-icons text-muted fs-6 text mx-1">open_in_new</span>
-              </h5>
-            </a>
+                <span class="material-icons text-muted fs-6 text mx-1">open_in_new</span>
+              </a>
+            </h5>
+            <h5 v-else class="text-dark fst-italic">
+              <span v-html="item.title"></span>
+            </h5>
             <p class="text-muted mb-2">
               <span v-for="(author, authorIndex) in item.authors" :key="authorIndex">
                 {{ author }}<span v-if="authorIndex < item.authors.length - 1">, </span>
