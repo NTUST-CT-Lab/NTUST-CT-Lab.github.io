@@ -95,8 +95,6 @@ const app = Vue.createApp({
                         description: '指導教授描述'
                     },
                     description: '致力於二氧化碳捕捉、熱物性質量測、相平衡模擬及製程強化的尖端研究',
-                    members_order: ["碩一", "碩二", "碩零"],
-                    members_all: "全部",
                     members: [
                         {
                             "name": "姓名",
@@ -152,6 +150,12 @@ const app = Vue.createApp({
                             list: []
                         },
                     }
+                },
+                members: {
+                    title: '實驗室成員',
+                    filter: {
+                        all: '全部'
+                    },
                 },
                 publications: {
                     title: '文獻發表',
