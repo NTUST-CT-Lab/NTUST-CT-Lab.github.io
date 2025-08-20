@@ -25,6 +25,19 @@ class Callbacks {
     }
 }
 
+function trimming(str, target) {
+    // start with target
+    while (str.startsWith(target)) {
+        str = str.slice(target.length);
+    }
+
+    // end with target
+    while (str.endsWith(target)) {
+        str = str.slice(0, -target.length);
+    }
+    return str;
+}
+
 var loadingContentCount = 0;
 
 function loadContentWithoutTag(done = null) {
@@ -63,7 +76,6 @@ const app = Vue.createApp({
             },
             nowPubPage: 1,
             title: '',
-            title_format: document.title,
             currentMemberFilter: "全部",
             currentTime: new Date().toLocaleString(),
             window: {
@@ -200,15 +212,18 @@ const app = Vue.createApp({
         // system language detection
         this.langChanged.add((lang) => {
             startAllCarousels();
-            for(i in this.info.nav) {
-                if(this.info.nav[i].link === location.pathname) {
-                    this.title = this.info.nav[i].title;
-                    document.title = this.title_format.replace('nav', this.title).replace('lab', this.info.lab.name);
+            document.title = this.info.title.format;
+            for(const t of this.info.nav) {
+                if(t.link === location.pathname) {
+                    this.title = t.title;
+                    document.title = this.info.title.format.replace('%s', this.title).replace('%l', this.info.lab.name);
                 }
             }
 
-            document.title = document.title.replace('nav', '');
-            document.title = document.title.startsWith('| ') ? document.title.slice(2) : document.title;
+            document.title = document.title.replace('%s', '');
+            for (i in this.info.title.trimming) {
+                document.title = trimming(document.title, this.info.title.trimming[i]);
+            }
         });
 
         const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage || this.language;

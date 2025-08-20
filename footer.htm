@@ -3,7 +3,7 @@
     <div class="row g-4">
         <div class="col-md-4">
         <h5>{{ info.lab.name }}</h5>
-        <p>{{ info.lab.pi.company_department }}<br>{{ info.lab.pi.team }}</p>
+        <p>{{ info.lab.college_department }}<br>{{ info.lab.pi.team }}</p>
         <div class="mt-3">
             <a href="#" class="text-white me-2"><span class="material-icons">facebook</span></a>
             <a href="#" class="text-white me-2"><span class="material-icons">link</span></a>
@@ -34,7 +34,7 @@
     <hr class="mt-4 mb-3 border-secondary">
     <div class="text-center">
         <p class="mb-0">Designed by <a target="_blank" rel="noopener" href="https://github.com/Axisflow" class="text-danger">Axisflow</a>. Powered by <a target="_blank" rel="noopener" href="https://vuejs.org/" class="text-success">Vue.js</a>, <a target="_blank" rel="noopener" href="https://getbootstrap.com/" class="text-warning">Bootstrap</a>, <a target="_blank" rel="noopener" href="https://jquery.com/" class="text-primary">JQuery</a> and <a target="_blank" rel="noopener" href="https://fonts.google.com/icons" class="text-secondary">Material Icons</a>.</p>
-        <p class="mb-0">{{ info.copyright.replace('year', (new Date()).getFullYear()).replace('lab', info.lab.name).replace('company_department', info.lab.pi.company_department) }}</p>
+        <p class="mb-0">{{ info.copyright.replace('year', (new Date()).getFullYear()).replace('lab', info.lab.name).replace('company_department', info.lab.college_department) }}</p>
         <p class="mb-0">現在時間：{{ currentTime }}</p>
     </div>
     </div>
