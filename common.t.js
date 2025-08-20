@@ -208,7 +208,7 @@ const app = Vue.createApp({
             }
 
             document.title = document.title.replace('nav', '');
-            document.title = document.title.startsWith('| ') ? document.title.slice(3) : document.title;
+            document.title = document.title.startsWith('| ') ? document.title.slice(2) : document.title;
         });
 
         const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage || this.language;
