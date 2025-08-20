@@ -1,25 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-    <a class="navbar-brand" href="/">化工製程技術實驗室</a>
+    <a class="navbar-brand" href="/">{{ info.lab.name }}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">首頁</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/research">研究領域</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pi">指導教授</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/members">其他成員</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/publications">研究發表</a>
+            <li v-for="(item, index) in info.nav" class="nav-item">
+                <a class="nav-link" :href="item.link" :class="{'active': item.link === location.pathname}">{{ item.title }}</a>
             </li>
         </ul>
         <div class="d-flex ms-3 justify-content-center">

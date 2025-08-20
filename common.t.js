@@ -62,12 +62,16 @@ const app = Vue.createApp({
                 tag: 'all'
             },
             nowPubPage: 1,
+            title: '',
+            title_format: document.title,
             currentMemberFilter: "全部",
             currentTime: new Date().toLocaleString(),
             window: {
                 innerWidth: window.innerWidth,
                 innerHeight: window.innerHeight,
             },
+            location: location,
+            URL: URL,
             info: {
                 lab: {
                     university: {
@@ -85,7 +89,7 @@ const app = Vue.createApp({
                         name: '化學工程系',
                         website: 'https://www.ntust.edu.tw/department/chemical-engineering',
                     },
-                    name: '化工製程技術實驗室',
+                    name: '碳技術實驗室',
                     pi: {
                         name: '游承修',
                         title: '助理教授',
@@ -118,7 +122,7 @@ const app = Vue.createApp({
                     introduction: {
                         carousel: [],
                         title: '實驗室簡介',
-                        content: '國立臺灣科技大學化學工程所游承修教授的化工製程技術實驗室，專注於開發創新解決方案，應對當代化學工程的挑戰。我們的研究結合了實驗測量與理論模擬，以促進化工製程的效率、環保性及經濟效益。我們致力於培養學生在化學工程領域的專業知識和解決問題的能力，並與國內外學術界和產業界保持密切合作，共同推動相關領域的技術發展。'
+                        content: '國立臺灣科技大學化學工程所游承修教授的碳技術實驗室，專注於開發創新解決方案，應對當代化學工程的挑戰。我們的研究結合了實驗測量與理論模擬，以促進化工製程的效率、環保性及經濟效益。我們致力於培養學生在化學工程領域的專業知識和解決問題的能力，並與國內外學術界和產業界保持密切合作，共同推動相關領域的技術發展。'
                     }, 
                     // 公告欄
                     announcement: {
@@ -196,6 +200,15 @@ const app = Vue.createApp({
         // system language detection
         this.langChanged.add((lang) => {
             startAllCarousels();
+            for(i in this.info.nav) {
+                if(this.info.nav[i].link === location.pathname) {
+                    this.title = this.info.nav[i].title;
+                    document.title = this.title_format.replace('nav', this.title).replace('lab', this.info.lab.name);
+                }
+            }
+
+            document.title = document.title.replace('nav', '');
+            document.title = document.title.startsWith('| ') ? document.title.slice(3) : document.title;
         });
 
         const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage || this.language;

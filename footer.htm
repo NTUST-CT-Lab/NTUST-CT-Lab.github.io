@@ -2,8 +2,8 @@
     <div class="container p-4">
     <div class="row g-4">
         <div class="col-md-4">
-        <h5>化工製程技術實驗室</h5>
-        <p>國立臺灣科技大學化學工程系<br>游承修教授研究團隊</p>
+        <h5>{{ info.lab.name }}</h5>
+        <p>{{ info.lab.pi.company_department }}<br>{{ info.lab.pi.team }}</p>
         <div class="mt-3">
             <a href="#" class="text-white me-2"><span class="material-icons">facebook</span></a>
             <a href="#" class="text-white me-2"><span class="material-icons">link</span></a>
@@ -15,8 +15,8 @@
         <div class="col-md-4">
         <h5>快速連結</h5>
         <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">國立臺灣科技大學</a></li>
-            <li><a href="#" class="text-white text-decoration-none">化學工程系</a></li>
+            <li><a :href="info.lab.university.website" class="text-white text-decoration-none">{{ info.lab.university.name }}<span class="material-icons fs-6 mx-1">open_in_new</span></a></li>
+            <li><a :href="info.lab.department.website" class="text-white text-decoration-none">{{ info.lab.department.name }}<span class="material-icons fs-6 mx-1">open_in_new</span></a></li>
             <li><a href="#" class="text-white text-decoration-none">實驗室設備預約</a></li>
             <li><a href="#" class="text-white text-decoration-none">學生專區</a></li>
         </ul>
@@ -34,7 +34,7 @@
     <hr class="mt-4 mb-3 border-secondary">
     <div class="text-center">
         <p class="mb-0">Designed by <a target="_blank" rel="noopener" href="https://github.com/Axisflow" class="text-danger">Axisflow</a>. Powered by <a target="_blank" rel="noopener" href="https://vuejs.org/" class="text-success">Vue.js</a>, <a target="_blank" rel="noopener" href="https://getbootstrap.com/" class="text-warning">Bootstrap</a>, <a target="_blank" rel="noopener" href="https://jquery.com/" class="text-primary">JQuery</a> and <a target="_blank" rel="noopener" href="https://fonts.google.com/icons" class="text-secondary">Material Icons</a>.</p>
-        <p class="mb-0">{{ info.copyright }}</p>
+        <p class="mb-0">{{ info.copyright.replace('year', (new Date()).getFullYear()).replace('lab', info.lab.name).replace('company_department', info.lab.pi.company_department) }}</p>
         <p class="mb-0">現在時間：{{ currentTime }}</p>
     </div>
     </div>
