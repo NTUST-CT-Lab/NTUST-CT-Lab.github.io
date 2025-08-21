@@ -85,61 +85,118 @@ const app = Vue.createApp({
             location: location,
             URL: URL,
             info: {
+                title: {
+                    format: "%s｜%l",
+                    subformat: "%n－%t",
+                    trimming: ["｜", "－", "|", "-", " "]
+                },
+                datetime: {
+                    default_timezone: 480,
+                    parser: {
+                        year: "%YEAR%-1911",
+                        month: "%MONTH%",
+                        day: "%DAY%",
+                        hour: "%HOUR%",
+                        minute: "%MINUTE%",
+                        second: "%SECOND%",
+                        timezone: "%TIMEZONE%+480"
+                    },
+                    format: {
+                        year: "民國 %Y 年",
+                        month: "%m 月",
+                        day: "%d 日",
+                        hour: "%H 時",
+                        minute: "%M 分",
+                        second: "%S 秒",
+                        microsecond: "%f 微秒",
+                        year_month: "民國 %Y 年 %m 月",
+                        month_day: "%m 月 %d 日",
+                        year_month_day: "民國 %Y 年 %m 月 %d 日"
+                    }
+                },
                 lab: {
+                    name: "",
+                    phone: "",
+                    email: "",
+                    location: "",
+                    access_time: "",
                     university: {
-                        name: '國立臺灣科技大學',
-                        logo: 'assets/images/logo.png',
-                        website: 'https://www.ntust.edu.tw',
-                        address: '台北市大安區忠孝東路四段43號',
-                        phone: '02-1234-5678',
+                        name: "",
+                        logo: "/assets/images/example.png",
+                        website: "https://example.com",
+                        address: "",
+                        phone: ""
                     },
                     college: {
-                        name: '工學院',
-                        website: 'https://www.ntust.edu.tw/college/engineering',
+                        name: "",
+                        website: "https://example.com"
                     },
                     department: {
-                        name: '化學工程系',
-                        website: 'https://www.ntust.edu.tw/department/chemical-engineering',
+                        name: "",
+                        website: "https://example.com"
                     },
-                    name: '碳技術實驗室',
+                    college_department: "",
                     pi: {
-                        name: '游承修',
-                        title: '助理教授',
-                        name_title: '游承修 助理教授',
-                        company_department: '國立臺灣科技大學 化學工程系',
-                        image: 'assets/images/pi.jpg',
-                        description: '指導教授描述'
+                        name: "",
+                        title: "",
+                        name_title: "",
+                        company: "",
+                        department: "",
+                        company_department: "",
+                        team: "",
+                        image: "/assets/images/example.png",
+                        phone: "",
+                        email: "",
+                        location: "",
+                        location_link: "https://example.com",
+                        google_scholar: "https://example.com",
+                        description: ""
                     },
-                    description: '致力於二氧化碳捕捉、熱物性質量測、相平衡模擬及製程強化的尖端研究',
+                    description: "",
                     members: [
                         {
-                            "name": "姓名",
-                            "titles": ["碩一"],
-                            "image": "assets/default/user.png",
-                            "email": "for@example.com",
-                            "email_edu": "lab@mail.edu.tw",
-                            "research": "詳細研究領域",
-                            "bio": ""
+                            name: "姓名",
+                            titles: ["碩一"],
+                            image: "assets/default/user.png",
+                            email: "for@example.com",
+                            email_edu: "lab@mail.edu.tw",
+                            research: "詳細研究領域",
+                            bio: ""
                         },
                     ]
                 },
-                nav: {
-                    home: '首頁',
-                    pi: '指導教授',
-                    members: '成員',
-                    research: '研究領域',
-                    publications: '文獻發表',
-                },
+                nav: [
+                    {
+                        title: "首頁",
+                        link: "/"
+                    }, {
+                        title: "研究領域",
+                        link: "/research/"
+                    }, {
+                        title: "指導教授",
+                        link: "/pi/"
+                    }, {
+                        title: "其他成員",
+                        link: "/members/"
+                    }, {
+                        title: "研究發表",
+                        link: "/publications/"
+                    }
+                ],
                 home: {
                     introduction: {
-                        carousel: [],
-                        title: '實驗室簡介',
-                        content: '國立臺灣科技大學化學工程所游承修教授的碳技術實驗室，專注於開發創新解決方案，應對當代化學工程的挑戰。我們的研究結合了實驗測量與理論模擬，以促進化工製程的效率、環保性及經濟效益。我們致力於培養學生在化學工程領域的專業知識和解決問題的能力，並與國內外學術界和產業界保持密切合作，共同推動相關領域的技術發展。'
+                        title: "實驗室簡介",
+                        content: "",
+                        carousel: []
                     }, 
                     // 公告欄
                     announcement: {
-                        title: '公告欄',
-                        content: '歡迎來到我們的實驗室網站！我們將定期更新最新消息和研究成果，敬請關注！'
+                        title: "公告欄",
+                        list: [],
+                        calendar: {
+                            title: "實驗室行事曆",
+                            list: []
+                        }
                     }, 
                     // 活動花絮
                     activities: {
@@ -184,7 +241,22 @@ const app = Vue.createApp({
                         tag: '分類標籤'
                     },
                     list: []
-                }
+                },
+                footer: {
+                    contact: {
+                        title: "聯絡我們",
+                        email: ""
+                    },
+                    social: {
+                        title: "",
+                        github: "https://github.com/NTUST-CT-Lab"
+                    },
+                    links: {
+                        title: "相關連結",
+                        links: []
+                    }
+                },
+                copyright: "© year lab - company_department"
             }
         }
     },
@@ -224,6 +296,8 @@ const app = Vue.createApp({
             for (i in this.info.title.trimming) {
                 document.title = trimming(document.title, this.info.title.trimming[i]);
             }
+
+            localStorage.setItem('lang', this.language);
         });
 
         const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage || this.language;
