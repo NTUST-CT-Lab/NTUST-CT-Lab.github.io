@@ -1,7 +1,7 @@
 .lab-background {
     width: 100%;
-    min-height: 400px;
-    aspect-ratio: 16 / 9;
+    min-height: 250px;
+    max-height: 600px;
     background: linear-gradient(135deg, #ffb347 0%, #ff7e5f 50%, #ff6a00 100%);
     position: relative;
     overflow: hidden;
