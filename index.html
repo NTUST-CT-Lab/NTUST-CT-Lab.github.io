@@ -56,7 +56,11 @@
       <!-- 標題覆蓋層 -->
       <div class="overlay">
           <div class="lab-title">
-              <h1>{{ info.lab.name }}</h1>
+              <h1>
+                <span class="fs-larger">{{ info.lab.name }}</span>
+                <br />
+                <span class="fs-smaller">{{ info.lab.name_sublang }}</span>
+              </h1>
               <br />
               <p>{{ info.lab.description }}</p>
           </div>
@@ -67,12 +71,9 @@
     <section class="py-5 bg-light">
       <div class="container">
         <div class="row align-items-stretch">
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <h3 class="section-heading"><span>{{ info.home.introduction.title }}</span></h3>
-            <p v-html="info.home.introduction.content"></p>
-          </div>
-          <div class="col-lg-6 my-2">
-            <carousel name="Introduction" :content="info.home.introduction.carousel" switcher="true" indicators="true" description="true"></carousel>
+            <p class="fs-larger" v-html="info.home.introduction.content"></p>
           </div>
         </div>
       </div>

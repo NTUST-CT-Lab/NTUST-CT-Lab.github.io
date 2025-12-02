@@ -17,14 +17,20 @@ body {
     line-height: 1.6;
 }
 
+.fs-larger {
+    font-size: larger;
+}
+
+.fs-smaller {
+    font-size: smaller;
+}
+
 .navbar {
     background-color: var(--primary-color);
 }
 
-.navbar-brand img {
-    height: 40px;
-    background-color: white;
-    border-radius: 2pt;
+.navbar-brand {
+    text-align: center;
 }
 
 .hero-section {
