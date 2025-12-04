@@ -35,10 +35,15 @@
 
         <div class="row align-items-center justify-content-between position-sticky bg-white rounded-3 shadow-sm p-3" style="top: 5rem;">
           <!-- 搜尋欄 -->
-          <div class="col-auto m-1">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="搜尋論文..." v-model="searchQuery">
-              <span class="input-group-text"><i class="material-icons">search</i></span>
+          <div class="col-auto row m-1">
+            <div class="col-auto">
+              <label for="searchInput" class="col-form-label">{{ info.publications.filter.keyword }}</label>
+            </div>
+            <div class="col-auto">
+              <div class="input-group">
+                <input title="searchInput" type="text" class="form-control" :placeholder="info.publications.filter.placeholder" v-model="searchQuery">
+                <span class="input-group-text"><i class="material-icons">search</i></span>
+              </div>
             </div>
           </div>
           

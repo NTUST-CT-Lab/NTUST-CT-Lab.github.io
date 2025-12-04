@@ -70,10 +70,29 @@
     <!-- 簡介區塊 -->
     <section class="py-5 bg-light">
       <div class="container">
-        <div class="row align-items-stretch">
-          <div class="col-lg-12">
-            <h3 class="section-heading"><span>{{ info.home.introduction.title }}</span></h3>
-            <p class="fs-larger" v-html="info.home.introduction.content"></p>
+        <h3 class="section-heading"><span>{{ info.home.introduction.title }}</span></h3>
+        <p class="fs-larger" v-html="info.home.introduction.content"></p>
+      </div>
+    </section>
+    
+    <!-- 研究領域 -->
+    <section id="research" class="py-5">
+      <div class="container">
+        <h3 class="section-heading"><span>{{ info.home.research.title }}</span></h3>
+        <div class="row g-4">
+          <div v-for="(item, idx) in info.home.research.list" class="col-md-6 col-lg-3">
+            <div class="card h-100 research-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="material-icons" :style="{ color: item.icon_color }">{{ item.icon }}</span>
+                  {{ item.title }}
+                </h5>
+                <p class="card-text">{{ item.description }}</p>
+                <div class="mt-3">
+                  <span v-for="tag in item.tags" class="badge bg-light text-dark">{{ tag }}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
