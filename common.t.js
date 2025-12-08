@@ -77,7 +77,6 @@ const app = Vue.createApp({
             nowPubPage: 1,
             title: '',
             currentMemberFilter: 'all',
-            currentTime: new Date().toLocaleString(),
             window: {
                 innerWidth: window.innerWidth,
                 innerHeight: window.innerHeight,
@@ -311,10 +310,6 @@ const app = Vue.createApp({
             this.window.innerWidth = window.innerWidth;
             this.window.innerHeight = window.innerHeight;
         };
-
-        setInterval(() => {
-            this.currentTime = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
-        }, 1000);
     },
     
 });
