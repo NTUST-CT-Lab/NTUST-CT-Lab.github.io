@@ -5,24 +5,22 @@
         <h5>{{ info.lab.name }}</h5>
         <p>{{ info.lab.college_department }}<br>{{ info.lab.pi.team }}</p>
         <div class="mt-3">
-            <a href="#" class="text-white me-2"><span class="material-icons">facebook</span></a>
-            <a href="#" class="text-white me-2"><span class="material-icons">link</span></a>
-            <a href="#" class="text-white"><span class="material-icons">school</span></a>
+            <a :href="info.footer.social.github" class="text-white me-2"><span class="material-icons">rebase_edit</span></a>
+            <a :href="location.origin" class="text-white me-2"><span class="material-icons">link</span></a>
+            <a :href="'mailto:' + info.lab.email" class="text-white"><span class="material-icons">email</span></a>
             <!-- 現在時間 -->
             <span class="text-white ms-3" id="current-time"></span>
         </div>
         </div>
         <div class="col-md-4">
-        <h5>快速連結</h5>
+        <h5>{{ info.footer.links.title }}</h5>
         <ul class="list-unstyled">
             <li><a :href="info.lab.university.website" class="text-white text-decoration-none">{{ info.lab.university.name }}<span class="material-icons fs-6 mx-1">open_in_new</span></a></li>
             <li><a :href="info.lab.department.website" class="text-white text-decoration-none">{{ info.lab.department.name }}<span class="material-icons fs-6 mx-1">open_in_new</span></a></li>
-            <li><a href="#" class="text-white text-decoration-none">實驗室設備預約</a></li>
-            <li><a href="#" class="text-white text-decoration-none">學生專區</a></li>
         </ul>
         </div>
         <div class="col-md-4">
-        <h5>聯絡方式</h5>
+        <h5>{{ info.footer.contact.title }}</h5>
         <ul class="list-unstyled contact-info ps-3">
             <li class="mb-2"><span class="material-icons me-2">location_on</span>{{ info.lab.university.address }}</li>
             <li class="mb-2"><span class="material-icons me-2">business</span>{{ info.lab.location }}</li>
