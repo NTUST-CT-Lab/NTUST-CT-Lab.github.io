@@ -76,7 +76,7 @@ const app = Vue.createApp({
             },
             nowPubPage: 1,
             title: '',
-            currentMemberFilter: "全部",
+            currentMemberFilter: 'all',
             currentTime: new Date().toLocaleString(),
             window: {
                 innerWidth: window.innerWidth,

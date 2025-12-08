@@ -9,7 +9,7 @@
         <div class="carousel-inner">
             <div v-for="(item, index) in content" :key="index"
                  :class="['carousel-item', {active: index === 0}, 'h-100']">
-                <div class="block-bg" :style="'background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0) 40%), url(\'' + encodeURI(item.image) + '\');'"></div>
+                <div class="block-bg" :style="'background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0) 40%), url(\'' + encodeURI(item.image) + '\'); background-size: ' + background_size + '; background-repeat: no-repeat; background-position: center;'"></div>
                 <div v-if="description" class="carousel-caption d-none d-md-block">
                     <h5 v-if="item.title">{{ item.title }}</h5>
                     <p v-if="item.description">{{ item.description }}</p>
@@ -31,6 +31,29 @@
 
 <script>
     app.component('carousel', {
-        props: ['name', 'content', 'switcher', 'indicators', 'description'],
-        template: '#carouselTemplate'});
+        props: {
+            name: { type: String, required: true },
+            content: { type: Array, required: true },
+            switcher: Boolean,
+            indicators: Boolean,
+            description: Boolean,
+            background_size: { type: String, default: 'cover' },
+            interval: { type: Number, default: 5000 }
+        },
+        template: '#carouselTemplate',
+        mounted() {
+            const el = document.getElementById('carousel' + this.name);
+            if (!el) return;
+
+            this._bsCarousel = new bootstrap.Carousel(el, {
+            interval: this.interval,
+            ride: 'carousel',
+            pause: false,
+            wrap: true
+            });
+        },
+        beforeUnmount() {
+            this._bsCarousel?.dispose();
+        }
+    });
 </script>

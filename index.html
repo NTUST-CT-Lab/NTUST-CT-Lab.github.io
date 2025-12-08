@@ -33,7 +33,7 @@
     <section class="lab-background">
       <!-- 首頁輪播 -->
       <div class="w-100">
-        <carousel name="Landing" style="min-height: 250px; max-height: 600px" :content="info.home.activities.carousel"></carousel>
+        <carousel name="Landing" style="min-height: 250px; max-height: 600px" :content="info.home.activities.carousel" background_size="cover"></carousel>
       </div>
       
       <!-- 科技感光效 -->
@@ -83,10 +83,14 @@
           <div v-for="(item, idx) in info.home.research.list" class="col-md-6 col-lg-3">
             <div class="card h-100 research-card">
               <div class="card-body">
-                <h5 class="card-title">
-                  <span class="material-icons" :style="{ color: item.icon_color }">{{ item.icon }}</span>
-                  {{ item.title }}
-                </h5>
+                <div class="row">
+                  <div class="col-auto p-0 ms-3 me-1">
+                    <h5 class="material-icons" :style="{ color: item.icon_color }">{{ item.icon }}</h5>
+                  </div>
+                  <div class="col p-0 ms-1 me-3">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                  </div>
+                </div>
                 <p class="card-text">{{ item.description }}</p>
                 <div class="mt-3">
                   <span v-for="tag in item.tags" class="badge bg-light text-dark">{{ tag }}</span>
@@ -102,7 +106,7 @@
     <section class="py-5 bg-light">
       <div class="container">
         <h3 class="section-heading"><span>{{ info.home.activities.title }}</span></h3>
-        <carousel name="Activity" :content="info.home.activities.carousel" switcher="true" indicators="true" description="true"></carousel>
+        <carousel name="Activity" :content="info.home.activities.carousel" switcher="true" indicators="true" description="true" background_size="cover"></carousel>
       </div>
     </section>
 

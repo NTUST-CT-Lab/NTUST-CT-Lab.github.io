@@ -36,7 +36,7 @@
         <!-- 分類標籤 -->
         <ul class="nav nav-pills mb-4 justify-content-center">
           <li class="nav-item">
-            <button class="nav-link" :class="{ active: currentMemberFilter === info.members.filter.all }" @click="currentMemberFilter = info.members.filter.all">{{ info.members.filter.all }}</button>
+            <button class="nav-link" :class="{ active: currentMemberFilter === 'all' }" @click="currentMemberFilter = 'all'">{{ info.members.filter.all }}</button>
           </li>
           <li v-for="c in [...new Set(info.lab.members.flatMap(m => m.titles))]" class="nav-item">
             <button class="nav-link" :class="{ active: currentMemberFilter === c }" @click="currentMemberFilter = c">{{ c }}</button>
@@ -45,7 +45,7 @@
         
         <div class="row g-4">
           <template v-for="m in info.lab.members">
-            <div class="col-md-6 col-lg-3" v-if="currentMemberFilter === info.members.filter.all || m.titles.includes(currentMemberFilter)">
+            <div class="col-md-6 col-lg-3" v-if="currentMemberFilter === 'all' || m.titles.includes(currentMemberFilter)">
               <div class="card h-100 team-member">
                 <img :src="m.image" class="card-img-top" :alt="m.name" style="height: 400px; object-fit: cover;">
                 <div class="card-body text-center">
