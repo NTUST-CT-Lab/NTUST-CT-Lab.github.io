@@ -20,7 +20,10 @@
 
   <!-- Custom JS -->
   <script src="/common.t.js"></script>
-  
+
+  <!-- Custom Template -->
+  <template class="include" include="/templates/filter-bar.vue"></template>
+
   <div id="app" class="d-flex flex-column justify-content-between min-vh-100">
 
     <!-- 導航列 -->
@@ -33,44 +36,34 @@
       <div class="container">
         <h3 class="section-heading"><span>{{ info.publications.title }}</span></h3>
 
-        <div class="row align-items-center justify-content-between position-sticky bg-white rounded-3 shadow-sm p-3" style="top: 5rem;">
-          <!-- 搜尋欄 -->
-          <div class="col-auto row m-1">
-            <div class="col-auto">
+        <div class="row position-sticky bg-white rounded-3 shadow-sm p-3" style="top: 5rem;">
+          <filter-bar>
+            <!-- 搜尋欄 -->
+            <div class="filter-bar-item">
               <label for="searchInput" class="col-form-label">{{ info.publications.filter.keyword }}</label>
-            </div>
-            <div class="col-auto">
               <div class="input-group">
-                <input title="searchInput" type="text" class="form-control" :placeholder="info.publications.filter.placeholder" v-model="searchQuery">
+                <input id="searchInput" type="text" class="form-control" :placeholder="info.publications.filter.placeholder" v-model="searchQuery">
                 <span class="input-group-text"><i class="material-icons">search</i></span>
               </div>
             </div>
-          </div>
-          
-          <!-- 篩選選項 -->
-          <div class="col-auto row m-1">
-            <div class="col-auto">
+
+            <!-- 篩選選項 -->
+            <div class="filter-bar-item">
               <label for="yearFilter" class="col-form-label">{{ info.publications.filter.year }}</label>
-            </div>
-            <div class="col-auto">
-              <select title="yearFilter" class="form-select" v-model="publicationFilter.year">
+              <select id="yearFilter" class="form-select" v-model="publicationFilter.year">
                 <option value="all">{{ info.publications.filter.all }}</option>
                 <option v-for="y in [...new Set(info.publications.list.map(pub => pub.year))].sort().reverse()" :value="y">{{ y }}</option>
               </select>
             </div>
-          </div>
-          
-          <div class="col-auto row m-1">
-            <div class="col-auto">
+
+            <div class="filter-bar-item">
               <label for="tagFilter" class="col-form-label">{{ info.publications.filter.tag }}</label>
-            </div>
-            <div class="col-auto">
-              <select title="tagFilter" class="form-select" v-model="publicationFilter.tag">
+              <select id="tagFilter" class="form-select" v-model="publicationFilter.tag">
                 <option value="all">{{ info.publications.filter.all }}</option>
                 <option v-for="tag in [...new Map(info.publications.list.flatMap(pub => pub.tags).map(tag => [tag.name + tag.color, tag])).values()]" :value="tag.name" :style="{ backgroundColor: tag.color }">{{ tag.name }}</option>
               </select>
             </div>
-          </div>
+          </filter-bar>
         </div>
         
         <!-- 論文列表 -->

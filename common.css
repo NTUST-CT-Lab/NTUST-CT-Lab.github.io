@@ -146,3 +146,37 @@ body {
     background-position: center;
     background-size: cover;
 }
+
+.filter-bar-list {
+    position: relative;
+    min-width: 0;
+    /* 預留輸入框 focus 光暈的空間，折疊時才不會被裁掉 */
+    padding: 0.25rem;
+    margin: -0.25rem;
+}
+
+.filter-bar-list.collapsed {
+    overflow: hidden;
+}
+
+.filter-bar-list.collapsed > [data-filter-overflow] {
+    visibility: hidden;
+}
+
+.filter-bar-item {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.filter-bar-item > label {
+    white-space: nowrap;
+}
+
+.filter-bar-item > :not(label) {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+}
